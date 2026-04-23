@@ -34,16 +34,16 @@ export const toLocalRect = (rect: DOMRect, container: DOMRect): LocalRect => {
   };
 };
 
-export const pointOnSide = (
-  rect: LocalRect,
-  side: Side,
-  offset = 0,
-): Point => {
+export const pointOnSide = (rect: LocalRect, side: Side, offset = 0): Point => {
   switch (side) {
-    case "top":    return { x: rect.centerX + offset, y: rect.top };
-    case "bottom": return { x: rect.centerX + offset, y: rect.bottom };
-    case "left":   return { x: rect.left,             y: rect.centerY + offset };
-    case "right":  return { x: rect.right,            y: rect.centerY + offset };
+    case "top":
+      return { x: rect.centerX, y: rect.top + offset };
+    case "bottom":
+      return { x: rect.centerX, y: rect.bottom + offset };
+    case "left":
+      return { x: rect.left + offset, y: rect.centerY };
+    case "right":
+      return { x: rect.right + offset, y: rect.centerY };
   }
 };
 
